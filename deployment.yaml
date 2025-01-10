@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: konzek-flask-app
+  namespace: konzek
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: konzek-flask-app
+  template:
+    metadata:
+      labels:
+        app: konzek-flask-app
+    spec:
+      containers:
+        - name: konzek-flask-app
+          image: talhaakts/konzek-flask-app:v1
+          ports:
+            - containerPort: 8080
+
